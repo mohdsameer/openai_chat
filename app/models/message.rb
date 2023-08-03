@@ -7,6 +7,8 @@ class Message < ApplicationRecord
   belongs_to :parent, class_name: 'Message', foreign_key: :parent_id, optional: true
   has_one :reply, class_name: 'Message', foreign_key: :parent_id
 
+  scope :input_messages, -> { where(parent_id: nil) }
+
   # Attachements
   has_one_attached :file
 

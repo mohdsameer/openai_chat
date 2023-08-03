@@ -9,6 +9,10 @@ class AiResponseJob < ApplicationJob
 
     conversation_history += "User: My name is #{message.conversation.user.name}\n"
 
+    conversation.messages.input_messages.each do |tarot_message|
+      conversation_history += "#{tarot_message.content}\n "
+    end  
+
     input = "#{conversation_history}User: #{message.content}"
 
     client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
