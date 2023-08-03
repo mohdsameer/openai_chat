@@ -1,0 +1,25 @@
+<turbo-frame
+  class="tyn-main tyn-chat-content main-shown"
+  id="tynMain"
+  data-userid="<%=current_user.id%>"
+  data-controller="chat-main"
+  data-chat-main-asside-item-id-value="left-side-chat-item-<%= conversation.id %>">
+
+  <%= turbo_stream_from conversation %>
+
+  <!-- User image and name is in this partial -->
+  <%= render 'conversations/chat_content/content_head', conversation: conversation %>
+
+  <!-- our chat is in this partial -->
+  <%= render 'conversations/chat_content/content_body', conversation: conversation, messages: messages %>
+
+  <!-- The message form is in this partial -->
+  <%= render 'conversations/chat_content/content_footer', conversation: conversation %>
+
+  <%= render 'conversations/chat_content/content_sidebar', conversation: conversation %>
+  <!-- Right sidebar -->
+
+  <%= render 'conversations/chat_content/scroll_messages', author_id: current_user.id %>
+
+  <turbo-frame id="conversation-message-focus"></turbo-frame>
+</turbo-frame>

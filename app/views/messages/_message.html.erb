@@ -1,0 +1,15 @@
+<%= turbo_stream_from message %>
+<div class="tyn-reply-item <%= message.parent_id.nil? ? 'outgoing' : 'incoming' %>"
+     id="message-item-<%= message.id %>"
+     data-controller="message-item"
+     data-message-item-created-at-value="<%= message.created_at %>"
+     data-message-item-message-id-value="<%= message.id %>">
+
+  <div class="tyn-reply-group">
+    <span class="message-user-name"></span>
+
+    <div class="tyn-reply-bubble">
+      <div class="tyn-reply-text"> <%= raw message.content %> </div>
+    </div>
+  </div>
+</div>

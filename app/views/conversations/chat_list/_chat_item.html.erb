@@ -1,0 +1,15 @@
+<li class="tyn-aside-item js-toggle-main" id="left-side-chat-item">
+
+  <%= link_to conversation_path(conversation), class: 'tyn-media-group', data: { 'turbo-frame': 'tynMain' } do %>
+    <div class="tyn-media tyn-size-lg">
+      <%= image_tag "avatar/bot-user", alt: "" %>
+    </div>
+
+    <div class="tyn-media-col">
+      <div class="tyn-media-row">
+        <%= turbo_stream_from "conversation-#{conversation.id}-last-message" %>
+        <%= render 'conversations/chat_list/last_message', last_message: conversation.last_message, conversation: conversation %>
+      </div>
+    </div>
+  <% end %>
+</li>

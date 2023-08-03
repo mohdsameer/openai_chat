@@ -1,0 +1,35 @@
+<nav class="tyn-appbar">
+  <div class="container">
+    <div class="tyn-appbar-wrap">
+      <div class="tyn-appbar-logo">
+        <a class="tyn-logo" href="<%= root_path %>">
+          <div class="app-logo">Demo</div>
+        </a>
+      </div>
+      <!-- tyn-logo -->
+      <div class="tyn-appbar-content">
+        <ul class="tyn-appbar-nav tyn-appbar-nav-start">
+          <!-- .tyn-appbar-item -->
+        </ul>
+        <!-- .tyn-appbar-nav -->
+        <ul class="tyn-appbar-nav tyn-appbar-nav-end">
+          <!-- .tyn-appbar-item -->
+
+          <!-- TODO make notification working -->
+          <%#= render 'shared/notification' %>
+
+          <!-- .tyn-appbar-item -->
+          
+          <!-- Profile dropdown -->
+          <% if current_user.present? %>
+            <%= render 'shared/profile_dropdown' %>
+          <% end %>
+          <!-- .tyn-appbar-item -->
+        </ul>
+        <!-- .tyn-appbar-nav -->
+      </div>
+      <!-- .tyn-appbar-content -->
+    </div>
+    <!-- .tyn-appbar-wrap -->
+  </div>
+</nav>

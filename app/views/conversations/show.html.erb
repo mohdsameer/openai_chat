@@ -1,0 +1,6 @@
+<turbo-frame class="tyn-content tyn-content-full-height tyn-chat" id="conversationMain">
+	<%= turbo_stream_from @conversation %>
+  <%= render 'conversations/chat_list/chats', conversations: @conversations %>
+
+  <%= render 'conversations/chat_content/content', conversation: @conversation, messages: @messages %>
+</turbo-frame>

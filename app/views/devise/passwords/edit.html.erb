@@ -1,0 +1,43 @@
+<div class="tyn-content tyn-auth tyn-auth-centered">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-5 col-md-7 col-sm-9">
+        <div class="">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'card border-0' }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
+          <div class="p-4">
+            <h3>Change your password</h3>
+            <div class="row g-3">
+              <div class="col-12">
+                <div class="form-group">
+                  <label class="form-label" for="new-password">New password</label>
+                  <div class="form-control-wrap">
+                    <%= f.password_field :password, class: 'form-control', id: 'new-password', autofocus: true, autocomplete: "new-password" %>
+                  </div>
+                </div>
+              </div><!-- .col -->
+
+              <div class="col-12">
+                <div class="form-group">
+                  <label class="form-label" for="password-confirmation">Confirm new password</label>
+                  <div class="form-control-wrap">
+                    <%= f.password_field :password_confirmation, class: 'form-control', id: 'password-confirmation', autofocus: true, autocomplete: "password-confirmation" %>
+                  </div>
+                </div>
+              </div><!-- .col -->
+              <div class="col-12">
+                <%= f.submit 'Change my password', class: 'btn btn-primary w-100' %>
+              </div><!-- .col -->
+            </div><!-- .row -->
+          </div>
+        <% end %><!-- .card -->
+
+        <div class="mt-4">
+          <p class="small">Some how remembered? <%= link_to "Login", new_session_path(resource_name) %></p>
+        </div>
+      </div><!-- .col -->
+    </div><!-- .row -->
+  </div><!-- .container -->
+</div>
+

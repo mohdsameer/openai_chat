@@ -1,0 +1,14 @@
+<div class="tyn-chat-body customize_tyn_chat_body" id="tynChatBody" data-controller="messages">
+  <div class="tyn-reply" id="tynMessages" data-conversation-id="<%= conversation.id %>">
+
+    <% messages.each do |message| %>
+      <%=
+        render 'messages/message',
+        message: message,
+        author_id: message.conversation.user_id
+      %>
+
+      <%= render 'messages/date_separator', message: message %>
+    <% end %>
+  </div>
+</div>

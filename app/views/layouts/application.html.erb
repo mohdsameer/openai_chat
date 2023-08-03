@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
+
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="tyn-root">
+      <%= render 'shared/header' %>
+      <%= yield %>
+
+      <div id="image-viewer">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="full-image">
+      </div>
+
+      <turbo-frame id="closeModal"></turbo-frame>
+    </div>
+
+    <%= javascript_include_tag "bundle" %>
+    <%= javascript_include_tag "app" %>
+  </body>
+</html>

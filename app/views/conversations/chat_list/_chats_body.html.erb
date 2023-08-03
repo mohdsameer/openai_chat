@@ -1,0 +1,11 @@
+<div class="tyn-aside-body" data-simplebar>
+  <div class="tab-content">
+    <div class="tab-pane show active" id="all-chats" tabindex="0" role="tabpanel">
+      <ul class="tyn-aside-list" id="aside-chat-list">
+        <% @conversations.each do |conversation| %>
+          <%= render 'conversations/chat_list/chat_item', conversation: conversation %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
