@@ -1,1 +1,1 @@
-<h6 class="name" id="conversation-<%= conversation.id %>-last-message"><%= last_message %></h6>
+<h6 class="name" id="conversation-<%= conversation.id %>-last-message"><%= last_message.present? ? last_message : 'New Chat' %></h6>

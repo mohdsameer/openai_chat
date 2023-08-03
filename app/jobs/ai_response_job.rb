@@ -1,6 +1,7 @@
 class AiResponseJob < ApplicationJob
 
-  def perform(message_id:)
+  def perform(message_id:, reply_id:)
+    reply        = Message.find(reply_id)
     message      = Message.find(message_id)
     conversation = message.conversation
 
@@ -11,9 +12,6 @@ class AiResponseJob < ApplicationJob
     input = "#{conversation_history}User: #{message.content}"
 
     client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
-
-    reply = message.create_reply(content: 'I am generating your result, please wait!',
-                                 conversation: conversation)
 
     response = client.chat(
       parameters: {
